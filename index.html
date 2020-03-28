@@ -40,6 +40,12 @@
     var message = "I'll remind you every 30 mins."
     var non_intro_message = "Sit upright with your shoulders back."
 
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
+
     function notifyMe() {
       while (times > -1){
         if (times != 0){
@@ -59,9 +65,7 @@
          notification.close();
         };
        }
-       setInterval(function() {
-
-      }, 60 * 1000);
+       await sleep(2000);
       }
     }
 
