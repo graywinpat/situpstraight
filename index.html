@@ -60,7 +60,17 @@ else {
 
 
     function notifyMe() {
-      alert("first")
+      if (Notification.permission != 'granted')
+        Notification.requestPermission();
+      else {
+          var notification = new Notification('Check your posture!', {
+          icon: 'posturepic.jpg',
+          body: message
+        });
+        notification.onclick = function() {
+          notification.close();
+        };
+        }
       setInterval(fn60sec, 60*1000);
 
   }
