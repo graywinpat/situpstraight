@@ -27,47 +27,45 @@
 
   <script>
       // request permission on page load
-    document.addEventListener('DOMContentLoaded', function() {
-     if (!Notification) {
-      alert('Desktop notifications not available in your browser. Try with a different browser.');
-      return;
-     }
+//    document.addEventListener('DOMContentLoaded', function() {
+//     if (!Notification) {
+//      alert('Desktop notifications not available in your browser. Try with a different browser.');
+//      return;
+//     }
 
-     if (Notification.permission != 'granted')
-      Notification.requestPermission();
-    });
+//     if (Notification.permission != 'granted')
+//      Notification.requestPermission();
+//    });
     var times = 0
     var message = "I'll remind you every 30 mins."
     var non_intro_message = "Sit upright with your shoulders back."
 
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
 
+function fn60sec() {
+ if (times != 0){
+   message = non_intro_message
+ }
+  times = times + 1
+if (Notification.permission != 'granted')
+  Notification.requestPermission();
+else {
+    var notification = new Notification('Check your posture!', {
+    icon: 'posturepic.jpg',
+    body: message
+  });
+  notification.onclick = function() {
+    notification.close();
+  };
+  }
+
+}
 
 
     function notifyMe() {
-      while (times > -1){
-        if (times != 0){
-          message = non_intro_message
-        }
-        times = times + 1
-       if (Notification.permission != 'granted')
-        Notification.requestPermission();
-       else {
+      alert("first")
+      setInterval(fn60sec, 10*1000);
 
-        var notification = new Notification('Check your posture!', {
-         icon: 'posturepic.jpg',
-         body: message
-        });
-
-        notification.onclick = function() {
-         notification.close();
-        };
-       }
-       await sleep(2000);
-      }
-    }
+  }
 
   </script>
 
