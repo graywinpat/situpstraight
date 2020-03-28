@@ -26,16 +26,14 @@
     <div id="twitter">Made by <a href="http://twitter.com/graywinpat" target="_blank">@graywinpat</a>, in case of mass working-from-home event.
 
   <script>
-      // request permission on page load
-//    document.addEventListener('DOMContentLoaded', function() {
-//     if (!Notification) {
-//      alert('Desktop notifications not available in your browser. Try with a different browser.');
-//      return;
-//     }
-
-//     if (Notification.permission != 'granted')
-//      Notification.requestPermission();
-//    });
+    document.addEventListener('DOMContentLoaded', function() {
+     if (!Notification) {
+      alert('Desktop notifications not available in your browser. Try with a different browser.');
+      return;
+     }
+     if (Notification.permission != 'granted')
+      Notification.requestPermission();
+    });
     var times = 0
     var message = "I'll remind you every 30 mins."
     var non_intro_message = "Sit upright with your shoulders back."
@@ -63,7 +61,7 @@ else {
 
     function notifyMe() {
       alert("first")
-      setInterval(fn60sec, 10*1000);
+      setInterval(fn60sec, 60*1000);
 
   }
 
