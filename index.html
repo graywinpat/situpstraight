@@ -39,41 +39,41 @@
     var non_intro_message = "Sit upright with your shoulders back."
 
 
-function fn60sec() {
- if (times != 0){
-   message = non_intro_message
- }
-  times = times + 1
-if (Notification.permission != 'granted')
-  Notification.requestPermission();
-else {
-    var notification = new Notification('Check your posture!', {
-    icon: 'posturepic.jpg',
-    body: message
-  });
-  notification.onclick = function() {
-    notification.close();
-  };
-  }
+    function fn60sec() {
+     if (times != 0){
+       message = non_intro_message
+     }
+      times = times + 1
+    if (Notification.permission != 'granted')
+      Notification.requestPermission();
+    else {
+        var notification = new Notification('Check your posture!', {
+        icon: 'posturepic.jpg',
+        body: message
+      });
+      notification.onclick = function() {
+        notification.close();
+      };
+      }
 
-}
+    }
 
 
-    function notifyMe() {
-      if (Notification.permission != 'granted')
-        Notification.requestPermission();
-      else {
-          var notification = new Notification('Check your posture!', {
-          icon: 'posturepic.jpg',
-          body: message
-        });
-        notification.onclick = function() {
-          notification.close();
-        };
-        }
-      setInterval(fn60sec, 60*1000);
+        function notifyMe() {
+          if (Notification.permission != 'granted')
+            Notification.requestPermission();
+          else {
+              var notification = new Notification('Check your posture!', {
+              icon: 'posturepic.jpg',
+              body: message
+            });
+            notification.onclick = function() {
+              notification.close();
+            };
+            }
+          setInterval(fn60sec, 1800*1000);
 
-  }
+      }
 
   </script>
 
