@@ -36,16 +36,24 @@
      if (Notification.permission != 'granted')
       Notification.requestPermission();
     });
-
+    var times = 0
+    var message = "You'll get a message like this every 30 mins from now on."
+    var non_intro_message = "Sit upright with your shoulders back."
 
     function notifyMe() {
+      if (times != 0){
+        message = non_intro_message
+      }
+      times = times + 1
      if (Notification.permission != 'granted')
       Notification.requestPermission();
      else {
+
       var notification = new Notification('Check your posture!', {
        icon: 'posturepic.jpg',
-       body: "Sit upright with your shoulders back."
+       body: message
       });
+
       notification.onclick = function() {
        notification.close();
       };
