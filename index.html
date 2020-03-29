@@ -54,6 +54,22 @@
     if (Notification.permission != 'granted')
       Notification.requestPermission();
     else {
+        var notification = new Notification('Check your posture!', {
+        icon: 'posturepic.jpg',
+        body: message
+      });
+      notification.onclick = function() {
+        notification.close();
+      };
+      }
+
+    }
+
+
+        function notifyMe() {
+          if (Notification.permission != 'granted')
+            Notification.requestPermission();
+            else {
         if (isMobile = true){
           var notification = new Notification('Check your posture!', {
           icon: 'posturepic.jpg',
@@ -67,22 +83,6 @@
         alert("Sorry, this only works on desktop!")
       }
       }
-
-    }
-
-
-        function notifyMe() {
-          if (Notification.permission != 'granted')
-            Notification.requestPermission();
-          else {
-              var notification = new Notification('Check your posture!', {
-              icon: 'posturepic.jpg',
-              body: message
-            });
-            notification.onclick = function() {
-              notification.close();
-            };
-            }
           setInterval(fn60sec, 1800*1000);
 
       }
